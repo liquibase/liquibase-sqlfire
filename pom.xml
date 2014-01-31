@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.liquibase</groupId>
+	<artifactId>liquibase-sqlfire</artifactId>
+	<version>3.0.0</version>
+	<packaging>jar</packaging>
+	
+    <name>Liquibase SqlFire Database Plugin</name>
+    <description>Liquibase is a tool for managing and executing database changes. This is a plugin to allow integration with VmWare's SqlFire Database</description>
+    <url>http://www.liquibase.org</url>
+    	
+    <licenses>
+        <license>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <name>Apache License, Version 2.0</name>
+        </license>
+    </licenses>
+    
+    <scm>
+        <connection>scm:git:https://github.com/jeffxor/liquibase-sqlfire.git</connection>
+        <url>scm:git:https://github.com/jeffxor/liquibase-sqlfire.git</url>
+        <developerConnection>scm:git:https://github.com/jeffxor/liquibase-sqlfire.git</developerConnection>
+    </scm>
+    
+    <developers>
+       <developer>
+         <id>williamj</id>
+         <name>Jeffrey Williams</name>
+         <url>https://github.com/jeffxor</url>
+         <roles>
+           <role>developer</role>
+         </roles>
+         <timezone>-6</timezone>
+       </developer>
+     </developers>
+         	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+	</dependencies>
+</project>
