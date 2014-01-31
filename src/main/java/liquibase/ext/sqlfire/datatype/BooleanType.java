@@ -1,4 +1,4 @@
-package liquibase.datatype.core;
+package liquibase.ext.sqlfire.datatype;
 
 import liquibase.database.Database;
 import liquibase.database.core.CacheDatabase;
@@ -13,7 +13,7 @@ import liquibase.database.core.OracleDatabase;
 import liquibase.database.core.SQLiteDatabase;
 import liquibase.database.core.SybaseASADatabase;
 import liquibase.database.core.SybaseDatabase;
-import liquibase.database.ext.SQLFireDatabase;
+import liquibase.ext.sqlfire.database.SQLFireDatabase;
 import liquibase.datatype.DataTypeInfo;
 import liquibase.datatype.DatabaseDataType;
 import liquibase.datatype.LiquibaseDataType;

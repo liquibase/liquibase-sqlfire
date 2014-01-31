@@ -1,4 +1,4 @@
-package liquibase.database.ext;
+package liquibase.ext.sqlfire.database;
 
 import java.sql.Driver;
 import java.sql.DriverManager;
