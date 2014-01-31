@@ -1,15 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.liquibase</groupId>
+
+	<groupId>org.liquibase.ext</groupId>
 	<artifactId>liquibase-sqlfire</artifactId>
-	<version>3.0.0</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
-    <name>Liquibase SqlFire Database Plugin</name>
-    <description>Liquibase is a tool for managing and executing database changes. This is a plugin to allow integration with VmWare's SqlFire Database</description>
-    <url>http://www.liquibase.org</url>
-    	
+    <name>Liquibase SqlFire Database Extension</name>
+    <description>Liquibase extension to allow integration with VmWare's SqlFire Database</description>
+    <url>https://github.com/liquibase/liquibase-sqlfire</url>
+
+    <organization>
+		<name>Liquibase.org</name>
+		<url>http://www.liquibase.org</url>
+	</organization>
+
     <licenses>
         <license>
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
@@ -17,11 +23,14 @@
         </license>
     </licenses>
     
+	<issueManagement>
+		<url>https://github.com/liquibase/liquibase-sqlfire/issues</url>
+	</issueManagement>
+
     <scm>
-        <connection>scm:git:https://github.com/jeffxor/liquibase-sqlfire.git</connection>
-        <url>scm:git:https://github.com/jeffxor/liquibase-sqlfire.git</url>
-        <developerConnection>scm:git:https://github.com/jeffxor/liquibase-sqlfire.git</developerConnection>
-    </scm>
+		<connection>scm:git:http://github.com/liquibase/liquibase-sqlfire.git</connection>
+		<url>https://github.com/liquibase/liquibase-sqlfire</url>
+	</scm>
     
     <developers>
        <developer>
@@ -33,6 +42,17 @@
          </roles>
          <timezone>-6</timezone>
        </developer>
+       <developer>
+			<id>nvoxland</id>
+			<name>Nathan Voxland</name>
+			<email>nathan.voxland@liquibase.org</email>
+			<url>http://nathan.voxland.net</url>
+			<organizationUrl>http://nathan.voxland.net/</organizationUrl>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>-6</timezone>
+		</developer>
      </developers>
          	
 	<dependencies>
@@ -48,4 +68,124 @@
 			<version>3.0.8</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+						<optimize>true</optimize>
+						<debug>true</debug>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<configuration>
+						<redirectTestOutputToFile>true</redirectTestOutputToFile>
+						<reportFormat>plain</reportFormat>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>enforce-java</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<requireJavaVersion>
+										<version>1.6</version>
+									</requireJavaVersion>
+								</rules>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.4</version>
+				</plugin>
+
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+                    <version>2.2.2</version>
+					<configuration>
+                        <stagingRepository>/tmp/maven-snapshot</stagingRepository>
+						<mavenExecutorId>forked-path</mavenExecutorId>
+                        <pushChanges>false</pushChanges>
+					</configuration>
+				</plugin>
+
+
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<configuration>
+						<skip>false</skip>
+					</configuration>
+				</plugin>
+			</plugins>
+
+		</pluginManagement>
+	</build>
+
+    <distributionManagement>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+	<profiles>
+		<profile>
+            <!-- Required for deployment to Sonatype -->
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>
