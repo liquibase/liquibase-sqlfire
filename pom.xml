@@ -4,7 +4,7 @@
 
 	<groupId>org.liquibase.ext</groupId>
 	<artifactId>liquibase-sqlfire</artifactId>
-	<version>3.0.0-SNAPSHOT</version>
+	<version>3.1.1</version>
 	<packaging>jar</packaging>
 	
     <name>Liquibase SqlFire Database Extension</name>
@@ -33,6 +33,15 @@
 	</scm>
     
     <developers>
+       <developer>
+         <id>jrack</id>
+         <name>Josh Rack</name>
+         <url>https://github.com/JoshRack</url>
+         <roles>
+           <role>developer</role>
+         </roles>
+         <timezone>-6</timezone>
+       </developer>
        <developer>
          <id>williamj</id>
          <name>Jeffrey Williams</name>
@@ -65,7 +74,7 @@
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
-			<version>3.0.8</version>
+			<version>3.1.1</version>
 		</dependency>
 	</dependencies>
 
