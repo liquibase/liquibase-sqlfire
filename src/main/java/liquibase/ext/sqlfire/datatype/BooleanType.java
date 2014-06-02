@@ -1,7 +1,6 @@
 package liquibase.ext.sqlfire.datatype;
 
 import liquibase.database.Database;
-import liquibase.database.core.CacheDatabase;
 import liquibase.database.core.DB2Database;
 import liquibase.database.core.DerbyDatabase;
 import liquibase.database.core.FirebirdDatabase;
@@ -27,9 +26,7 @@ public class BooleanType extends LiquibaseDataType {
 
     @Override
     public DatabaseDataType toDatabaseDataType(Database database) {
-        if (database instanceof CacheDatabase) {
-            return new DatabaseDataType("INT");
-        } else if (database instanceof DB2Database || database instanceof FirebirdDatabase) {
+       if (database instanceof DB2Database || database instanceof FirebirdDatabase) {
             return new DatabaseDataType("SMALLINT");
         } else if (database instanceof MSSQLDatabase) {
             return new DatabaseDataType("BIT");
@@ -103,8 +100,7 @@ public class BooleanType extends LiquibaseDataType {
         if (database instanceof DerbyDatabase) {
             return !((DerbyDatabase) database).supportsBooleanDataType();
         }
-        return database instanceof CacheDatabase
-                || database instanceof DB2Database
+        return database instanceof DB2Database
                 || database instanceof FirebirdDatabase
                 || database instanceof MSSQLDatabase
                 || database instanceof MySQLDatabase
