@@ -1,5 +1,5 @@
 ##Liquibase SqlFire Plugin##
-This adds support for the Pivotal's SqlFire database to Liquibase. 
+This adds support for the Pivotal's SqlFire database to Liquibase, version 3.1.1.
 
 SqlFire is an in-memory distributed SQL database. In the category of NewSQL databases, SQLFire delivers dynamic scalability and high performance for data-intensive modern applications. 
 
@@ -7,11 +7,12 @@ SqlFire provides it's sql interface by using a port of Apache Derby.
 
 
 ###How to Use###
-To enable this plugin it needs to be added to the classpath prior to the liquibase.jar. This is due to having to override a couple of datatypes with in liquibase-core project. Therefore it is required that this module be picked up first from the classpath.
 
-Another gotcha is that SqlFire reports it's Database Product Name as "Apache Derby". The Priority for SqlFireDatabase has been set to **PRIORITY_DATABASE** and should be picked up before the DerbyDatabse implementation.
+Intended for use with Liquibase version 3.1.1.
 
-The simplest way is to add this to the Liquibase distribution's "lib" folder and adjust the shell script to add jars from the lib folder before the liquibase*.jar.
+Add the compiled jar to the Liquibase distribution's "lib" folder.
+
+SqlFire reports its Database Product Name as "Apache Derby". The Priority for SqlFireDatabase has been set to **PRIORITY_DATABASE** and should be picked up before the DerbyDatabse implementation.
 
 
 ###Supported Refactoring/Changes###
