@@ -1,0 +1,2 @@
+liquibase.ext.sqlfire.sqlgenerator.CreateDatabaseChangeLogLockTableGeneratorSqlFire
+liquibase.ext.sqlfire.sqlgenerator.CreateDatabaseChangeLogTableGeneratorSqlFire

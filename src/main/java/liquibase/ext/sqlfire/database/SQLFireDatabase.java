@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 
 import liquibase.CatalogAndSchema;
+import liquibase.Scope;
 import liquibase.database.AbstractJdbcDatabase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseConnection;
@@ -121,7 +122,7 @@ public class SQLFireDatabase extends AbstractJdbcDatabase {
         try {
             return ExecutorService.getInstance().getExecutor(this).queryForObject(new RawSqlStatement("select current schema from sysibm.sysdummy1"), String.class);
         } catch (Exception e) {
-            LogFactory.getLogger().info("Error getting default schema", e);
+            Scope.getCurrentScope().getLog(getClass()).info("Error getting default schema", e);
         }
         return null;
     }
