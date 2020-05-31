@@ -3,7 +3,7 @@
 
 	<groupId>org.liquibase.ext</groupId>
 	<artifactId>liquibase-sqlfire</artifactId>
-	<version>3.1.1-SNAPSHOT</version>
+	<version>3.9.0</version>
 	<packaging>jar</packaging>
 	
     <name>Liquibase SqlFire Database Extension</name>
@@ -29,7 +29,8 @@
     <scm>
 		<connection>scm:git:http://github.com/liquibase/liquibase-sqlfire.git</connection>
 		<url>https://github.com/liquibase/liquibase-sqlfire</url>
-	</scm>
+	  <tag>liquibase-sqlfire-3.9.0</tag>
+  </scm>
     
     <developers>
        <developer>
