@@ -120,7 +120,7 @@ public class SQLFireDatabase extends AbstractJdbcDatabase {
     @Override
     protected String getConnectionCatalogName() throws DatabaseException {
         try {
-            return ExecutorService.getInstance().getExecutor(this).queryForObject(new RawSqlStatement("select current schema from sysibm.sysdummy1"), String.class);
+            return Scope.getCurrentScope().getSingleton(ExecutorService.class).getExecutor("jdbc", this).queryForObject(new RawSqlStatement("select current schema from sysibm.sysdummy1"), String.class);
         } catch (Exception e) {
             Scope.getCurrentScope().getLog(getClass()).info("Error getting default schema", e);
         }
