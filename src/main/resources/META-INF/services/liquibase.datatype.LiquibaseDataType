@@ -1,0 +1,2 @@
+liquibase.ext.sqlfire.datatype.SqlFireBooleanType
+liquibase.ext.sqlfire.datatype.SqlFireDateTimeType
