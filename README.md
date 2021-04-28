@@ -8,8 +8,6 @@ SqlFire provides it's sql interface by using a port of Apache Derby.
 
 ### How to Use
 
-Intended for use with Liquibase version 3.1.1.
-
 Add the compiled jar to the Liquibase distribution's "lib" folder.
 
 SqlFire reports its Database Product Name as "Apache Derby". The Priority for SqlFireDatabase has been set to **PRIORITY_DATABASE** and should be picked up before the DerbyDatabse implementation.
