@@ -1,4 +1,4 @@
-# Liquibase SqlFire Plugin
+# Liquibase SqlFire Plugin [![Build and Test Extension](https://github.com/liquibase/liquibase-sqlfire/actions/workflows/build.yml/badge.svg)](https://github.com/liquibase/liquibase-sqlfire/actions/workflows/build.yml)
 This adds support for the Pivotal's SqlFire database to Liquibase
 
 SqlFire is an in-memory distributed SQL database. In the category of NewSQL databases, SQLFire delivers dynamic scalability and high performance for data-intensive modern applications. 
@@ -7,8 +7,6 @@ SqlFire provides it's sql interface by using a port of Apache Derby.
 
 
 ### How to Use
-
-Intended for use with Liquibase version 3.1.1.
 
 Add the compiled jar to the Liquibase distribution's "lib" folder.
 
