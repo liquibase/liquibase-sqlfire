@@ -3,7 +3,7 @@
 
 	<groupId>org.liquibase.ext</groupId>
 	<artifactId>liquibase-sqlfire</artifactId>
-	<version>4.7.1-SNAPSHOT</version>
+	<version>4.7.1</version>
 	<packaging>jar</packaging>
 	
     <name>Liquibase SqlFire Database Extension</name>
@@ -74,7 +74,7 @@
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
-			<version>4.7.0</version>
+			<version>4.7.1</version>
 		</dependency>
 	</dependencies>
 
