@@ -3,6 +3,8 @@ name: Dry run release
 permissions:
   contents: write
   id-token: write
+  actions: read
+  packages: write
 
 on:
   workflow_dispatch: # Trigger on demand
