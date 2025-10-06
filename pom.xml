@@ -9,7 +9,7 @@
 
 	<groupId>org.liquibase.ext</groupId>
 	<artifactId>liquibase-sqlfire</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>5.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
     <name>Liquibase SqlFire Database Extension</name>
@@ -56,7 +56,7 @@
      </developers>
 
 	 <properties>
-        <liquibase.version>5.0.0</liquibase.version>
+        <liquibase.version>5.0.1</liquibase.version>
     </properties>
          	
 	<dependencies>
